@@ -1,0 +1,54 @@
+<template>
+    <lightning-card title="Todo List" icon-name="custom:custom14">
+      <div >
+        
+        
+        <lightning-layout>
+          <lightning-layout-item padding="around-small" size="12">
+              <ul class="slds-has-dividers_around-space">
+                  <template for:each={todoList} for:item="todoTask">
+                      <li class="slds-item" key={todoTask.id}>
+                          <lightning-layout vertical-align="center" horizontal-align="spread" >
+                              <lightning-layout-item padding="horizontal-small">
+                                  {todoTask.name}
+                              </lightning-layout-item>
+                              <lightning-layout-item padding="horizontal-small">
+                                <lightning-button-icon icon-name="utility:delete" alternative-text="Delete" name={todoList.id} onclick={delnewList} title={Delete}>
+                    
+                                </lightning-button-icon>
+                              </lightning-layout-item>
+                              
+                          </lightning-layout>
+                      </li>
+                  </template>
+              </ul>
+          </lightning-layout-item>
+          
+      </lightning-layout>
+      <p slot="footer">
+        <lightning-layout pull-to-boundary="small">
+            <lightning-layout-item padding="horizontal-small" flexibility="grow">
+                <lightning-input
+                    type="text"
+                    placeholder="Enter new task"
+                    variant="label-hidden"
+                    value={newlist}
+                    label="New Task"
+                    onchange={handleClick}
+                    required
+                >
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item padding="horizontal-small">
+                <lightning-button
+                    variant="brand"
+                    label="Add"
+                    onclick={addnewlist}
+                >
+                </lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+    </p>
+              </div>
+    </lightning-card>
+  </template>
